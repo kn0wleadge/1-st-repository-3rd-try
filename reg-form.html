@@ -1,34 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="Redan_style.css" />
 </head>
-
-<body>
+<body id = "body">
 <div class="container">
-<h1>Registration form</h1>
-<form>
-    <div class="form-input">
-        <label for="name-input"> Enter your name</label>
-        <input type="text" id="name-input" placeholder="Name"/>
-    </div>
-    <div class="form-input">
-        <label for="pass-input"> Enter your password</label>
-        <input type="password" id="pass-input" placeholder="Name"/>
-    </div>
-    <div class="form-input">
-        <label for="user-type-input"> Choose your fighter</label>
-        <select id = "user-type-input"/>
+    <h1>Registration form</h1>
+    <form id="my-form">
+        <div class="form-input">
+            <label for="name-input"> Enter your name</label>
+            <input type="text" id="name-input" placeholder="Name"/>
+            <div class = "error-message" id = "name-error">Please enter your name</div>
+        </div>
+        <div class="form-input">
+            <label for="pass-input"> Enter your password</label>
+            <input type="password" id="pass-input" placeholder="Password"/>
+            <div class = "error-message" id = "pass-error">Please enter your password</div>
 
-        <option>Admin</option>
-        <option>Moderator</option>
-        <option>User</option>
-    </select>
-    </div>
-    <input type="submit" value="Submit"/>
-</form>
+        </div>
+        <div class="form-input">
+            <label for="email-input"> Enter your email</label>
+            <input type="text" id="email-input" placeholder="@example.ru"/>
+            <div class = "error-message" id = "email-error">Please enter your email</div>
+        </div>
+        <div class="form-input">
+            <label for="user-type-input"> Choose your fighter</label>
+            <select id = "user-type-input">
+                <option>User</option>
+                <option>Admin</option>
+                <option>Moderator</option>
+            </select>
+        </div>
+
+    </form>
+    <div> <label><button id="submit-input" type = "submit">Submit button</button></label></div>
+    <label> <input type = "checkbox" id = "dark-theme">Dark theme</input></label>
+
+    <script type="text/javascript" async>
+        document.getElementById("dark-theme").addEventListener("change", function()
+        {
+            document.getElementById("body").classList.toggle("dark-theme");
+        });
+        const nameInput = document.querySelector("#name-input");
+        const emailInput = document.querySelector("#email-input");
+        const passwordInput = document.querySelector("#pass-input");
+        const nameError = document.querySelector("#name-error");
+        const emailError = document.querySelector("#email-error");
+        const passwordError = document.querySelector("#pass-error");
+        let inputValue;
+
+
+        nameInput.addEventListener("blur", () => {
+            inputValue = nameInput.value;
+            if (!inputValue){
+                nameInput.className = "input-error";
+                nameError.style.display = "block";
+            }
+        });
+        nameInput.addEventListener("focus", () => {
+            inputValue = nameInput.value;
+            nameInput.className = "name-input";
+            nameError.style.display = "none";
+        });
+
+
+        emailInput.addEventListener("blur", () => {
+            inputValue = emailInput.value;
+            if (!inputValue || !inputValue.includes("@")){
+                emailInput.className = "input-error";
+                emailError.style.display = "block";
+            }
+        });
+        emailInput.addEventListener("focus", () => {
+            inputValue = emailInput.value;
+            emailInput.className = "name-input";
+            emailError.style.display = "none";
+        });
+
+
+        passwordInput.addEventListener("blur", () => {
+            inputValue = passwordInput.value;
+            if (!inputValue){
+                passwordInput.className = "input-error";
+                passwordError.style.display = "block";
+            }
+        });
+        passwordInput.addEventListener("focus", () => {
+            inputValue = passwordInput.value
+            passwordInput.className = "name-input";
+            passwordError.style.display = "none";
+        });
+    </script>
+
 </div>
+
 </body>
 </html>
