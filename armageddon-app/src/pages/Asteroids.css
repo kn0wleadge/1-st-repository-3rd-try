@@ -1,0 +1,32 @@
+.divCard{
+    padding-bottom: 1vw;
+}
+.cunteiner
+{
+    width: 80vw;
+    margin: 0 auto;
+    display:flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 0.45vw;
+    font-size: 28px;
+
+}
+input[type=checkbox]{
+    height: 20px;
+    width: 20px;
+}
+.DistanceChoosefalse{
+    border:0;
+    background-color: white;
+    text-decoration: underline;
+    font-size: 1vw;
+}
+.DistanceChoosetrue{
+    border:0;
+    background-color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size:1vw;
+}

@@ -1,82 +1,79 @@
 .CardOK {
-    line-height: 24px;
-    padding-bottom: 1vw;
-    padding-right: 5vw;
-    padding-left: 5vw;
     border: solid 2px #000000;
     border-radius: 1vw;
-    width: 70vw;
-    height: 8vw;
+    width: 79vw;
+    height: 12vw;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     background: linear-gradient(90deg, #CFF37D 0%, #7DE88C 100%);
+    padding-right: 1vw;
+
+
 
 }
 .CardNotOK {
-    line-height: 24px;
-    padding-bottom: 1vw;
-    padding-right: 5vw;
-    padding-left: 5vw;
     border: solid 2px #000000;
     border-radius: 1vw;
-    width: 70vw;
-    height: 8vw;
+    width: 79vw;
+    height: 12vw;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding-right: 1vw;
     background: linear-gradient(90deg, #FFB199 0%, #FF0844 100%);
-}
-.button-21 {
-    align-items: center;
-    appearance: none;
-    background-color: #3EB2FD;
-    background-image: linear-gradient(1deg, #4F58FD, #149BF3 99%);
-    background-size: calc(100% + 20px) calc(100% + 20px);
-    border-radius: 100px;
-    border-width: 0;
-    box-shadow: none;
-    box-sizing: border-box;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-flex;
-    font-family: CircularStd,sans-serif;
-    font-size: 1rem;
-    height: auto;
-    justify-content: center;
-    line-height: 1.5;
-    padding: 6px 20px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color .2s,background-position .2s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: top;
-    white-space: nowrap;
-}
 
-.button-21:active,
-.button-21:focus {
-    outline: none;
 }
-
-.button-21:hover {
-    background-position: -20px -20px;
-}
-
-.button-21:focus:not(:active) {
-    box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
-}
-.rating {
+.card-1
+{
+    width: 79vw;
+    height: 12vw;
+    margin: 0 auto;
     display: flex;
-    height: 4vw;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    background:url("./meteor1.svg");
+    background-size:8%;
+    background-repeat: no-repeat;
+    background-position: left 17% bottom 60%;
+}
+.card-2
+{
+    width: 79vw;
+    height: 12vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background:url("./meteor1.svg");
+    background-size:20%;
+    background-repeat: no-repeat;
+    background-position: left 17% top 160%;
+}
+.card-3
+{
+    width: 79vw;
+    height: 12vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background:url("./meteor1.svg");
+    background-size:40%;
+    background-repeat: no-repeat;
+    background-position: left 17% top 110%;
+}
+.container
+{
+    padding-bottom: 1vw;
+    flex-direction: column;
+    align-items: center;
+
 }
