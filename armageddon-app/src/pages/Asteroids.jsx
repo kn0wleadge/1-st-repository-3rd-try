@@ -1,14 +1,41 @@
 import {Header} from "../components/header/Header";
 import "./Asteroids.css"
 import {Card} from "../components/card/Card";
-import {useState} from "react";
+import {useEffect,useState} from "react";
 export const Asteroids = () => {
-    const [asteroids] = useState(generateAsteroids())
+    const [asteroids,setAsteroids] = useState([])
 
     const [onlyDangerous, setOnlyDangerous]=useState(false)
 
     const [displayTip,setDisplayTip] = useState(true)
-
+    useEffect(()=>{
+        try{
+            fetch("https://api.nasa.gov/neo/rest/v1/feed?api_key=DEMO_KEY").then((res) => {
+                return res.json()
+            }).then((response) => {
+                let rawAsteroids = []
+                for (const data in response.near_earth_objects) {
+                    rawAsteroids = rawAsteroids.concat(response.near_earth_objects[data])
+                }
+                const asteroids = rawAsteroids.map(item => {
+                    const size = Math.trunc((item.estimated_diameter.meters.estimated_diameter_max + item.estimated_diameter.meters.estimated_diameter_min) / 2)
+                    const close = item.close_approach_data[0]
+                    return {
+                        name: item.name,
+                        date: close.close_approach_date,
+                        size,
+                        distance: close.miss_distance.kilometers,
+                        isDangerous: item.is_potentially_hazardous_asteroid,
+                        id: item.id
+                    }
+                })
+                setAsteroids(asteroids)
+            })
+        } catch (err) {
+            console.log(err)
+            setAsteroids(generateAsteroids())
+        }
+    },[])
     return <div>
         <div>
             <Header/>
@@ -25,7 +52,7 @@ export const Asteroids = () => {
         </div>
         <div>
             {onlyDangerous ?
-                asteroids.filter((item)=>item.isDangerous).map((item)=><Card {...item} displayTip={displayTip}/>) : asteroids.map((item)=><Card {...item} displayTip={displayTip}/>)
+                asteroids.filter((item)=>item.isDangerous).map((item)=><Card key ={item.id} {...item} displayTip={displayTip}/>) : asteroids.map((item)=><Card key ={item.id}{...item} displayTip={displayTip}/>)
             }
         </div>
     </div>
@@ -55,7 +82,7 @@ const generateAsteroids = ()=>{
         let isDangerous=false
         if (distance<=19220000)
             isDangerous=true
-        result.push({name,date,size,distance,isDangerous})
+        result.push({name,date,size,distance,isDangerous,id:name})
     }
     return result
 }
