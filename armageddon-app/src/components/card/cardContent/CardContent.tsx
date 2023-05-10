@@ -1,6 +1,12 @@
 import "./CardContent.css"
-
-export const CardContent =(props) => {
+type AsteroidCardProps = {
+    name:string;
+    date:string;
+    distance:number;
+    size:number;
+    displayTip:boolean
+}
+export const CardContent =(props:AsteroidCardProps) => {
     const {name,date,distance,size,displayTip}=props;
     return <div className={"info"}>
         <div><h2><u>{name}</u></h2>

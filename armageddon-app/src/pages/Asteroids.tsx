@@ -3,7 +3,14 @@ import "./Asteroids.css"
 import {Card} from "../components/card/Card";
 import {useEffect,useState} from "react";
 export const Asteroids = () => {
-    const [asteroids,setAsteroids] = useState([])
+    const [asteroids,setAsteroids] = useState<{
+        name:string;
+        date:string;
+        distance:number;
+        size:number;
+        id:string;
+        isDangerous:boolean;
+    }[]>([])
 
     const [onlyDangerous, setOnlyDangerous]=useState(false)
 
@@ -42,7 +49,7 @@ export const Asteroids = () => {
         </div>
         <div className={"cunteiner"}>
             <div>
-                <input type={"checkbox"} value={onlyDangerous} name={"onlyDanger"} onChange={()=> setOnlyDangerous(!onlyDangerous)}/><label htmlFor={"onlyDanger"}>Показывать только опасные</label>
+                <input type={"checkbox"} value={onlyDangerous as unknown as string} name={"onlyDanger"} onChange={()=> setOnlyDangerous(!onlyDangerous)}/><label htmlFor={"onlyDanger"}>Показывать только опасные</label>
             </div>
             <div>
                 Расстояние
@@ -80,7 +87,7 @@ const generateAsteroids = ()=>{
         const size = (Math.random()*1000+10).toFixed(0)
         const distance = (Math.random()*90000000).toFixed(0)
         let isDangerous=false
-        if (distance<=19220000)
+        if (distance as unknown as number<=19220000)
             isDangerous=true
         result.push({name,date,size,distance,isDangerous,id:name})
     }

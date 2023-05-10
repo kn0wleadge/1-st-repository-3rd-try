@@ -2,8 +2,16 @@ import "./Card.css"
 import {CardImage} from "./cardImage/CardImage";
 import {CardAction} from "./cardAction/CardAction";
 import {CardContent} from "./cardContent/CardContent";
-export const Card = (props) => {
-    const {name,date,distance,size,isDangerous,displayTip}=props;
+type AsteroidCardProps = {
+    name:string;
+    date:string;
+    distance:number;
+    size:number;
+    isDangerous:boolean;
+    displayTip:boolean
+}
+export const Card = (props: AsteroidCardProps) => {
+    const {name,date,distance,size,isDangerous,displayTip}=props
     return <div className={"container"}>
         <div className={`${isDangerous ? `CardNotOK` : `CardOK`}`}><div className={`card-${sizeType(size)}`}>
             <CardImage/>
