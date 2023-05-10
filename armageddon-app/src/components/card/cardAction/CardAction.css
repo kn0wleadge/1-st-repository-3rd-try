@@ -1,5 +1,4 @@
-.mark
-{
+.mark {
     display: flex;
     width: 10vw;
     height: 4vw;
@@ -9,6 +8,7 @@
     font-size: 22px;
     padding-right: 1vw;
 }
+
 .button-21 {
     align-items: center;
     appearance: none;
@@ -22,7 +22,7 @@
     color: #FFFFFF;
     cursor: pointer;
     display: inline-flex;
-    font-family: CircularStd,sans-serif;
+    font-family: CircularStd, sans-serif;
     font-size: 24px;
     height: auto;
     justify-content: center;
@@ -31,13 +31,14 @@
     position: relative;
     text-align: center;
     text-decoration: none;
-    transition: background-color .2s,background-position .2s;
+    transition: background-color .2s, background-position .2s;
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
     vertical-align: top;
     white-space: nowrap;
 }
+
 .button-21:hover {
     background-position: -20px -20px;
 }
@@ -45,6 +46,7 @@
 .button-21:focus:not(:active) {
     box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
 }
+
 .button-21:active,
 .button-21:focus {
     outline: none;
